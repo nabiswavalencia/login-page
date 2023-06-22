@@ -11,10 +11,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Open+Sans&display=swap"
      rel="stylesheet">
     <title>Facility form</title>
+
+    <script>
+        function updateDate() {
+          var currentDate = new Date(); // Get current date
+          var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          
+          var dayOfWeek = daysOfWeek[currentDate.getDay()];
+          var day = currentDate.getDate();
+          var month = monthsOfYear[currentDate.getMonth()];
+          var year = currentDate.getFullYear();
+    
+          // Format the date as desired (e.g., "Thursday, 22 June 2023")
+          var formattedDate = dayOfWeek + ', ' + day + ' ' + month + ' ' + year;
+    
+          // Update the date on the webpage
+          document.getElementById('date').innerHTML = formattedDate;
+        }
+    
+        // Call the updateDate() function initially and then at regular intervals
+        window.onload = function() {
+          updateDate(); // Update the date immediately
+          setInterval(updateDate, 1000); // Update the date every second
+        };
+      </script>
 </head>
 <body>
     <div class="header">
         <img src="https://eiddash.nascop.org/img/nascoplogo.png" >
+        <strong class="font-extra-bold font-uppercase" style="color: black;" id="date"></strong></a>
+
+
     </div>
     <div class="container">
             <div class="row">
@@ -60,7 +88,8 @@
      </div>
 
             </div>
-    
-          
+         
+           
+            
 </body>
 </html>
